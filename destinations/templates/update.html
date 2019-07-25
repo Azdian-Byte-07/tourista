@@ -4,9 +4,21 @@
 {% block title %}Update{% endblock title %}
 
 {% block content %}
-<form action="{% url 'destination-update' destination_obj.id %}" method="POST" enctype="multipart/form-data">
-  {% csrf_token %}
-  {{form.as_p}}
+
+<br>
+<div class="card">
+  <h5 class="card-header">Update: {{restaurant_obj.name}}</h5>
+  <div class="card-body">
+    <p class="card-text" style="position: static">
+    <form action="{% url 'destination-update' destination_obj.id %}" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{form|crispy}}
   <input type="submit" value="Update">
-</form>
+  </form>
+
+    </p>
+  </div>
+</div>
+
+
 {% endblock content %}

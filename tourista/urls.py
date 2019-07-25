@@ -22,8 +22,9 @@ from destinations import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-
+    path('', views.destination_list),
     path('destinations/list/', views.destination_list, name='destination-list'),
+
     path('destinations/detail/<int:destination_id>/',
          views.destination_detail, name='destination-detail'),
     path('destinations/create/', views.destination_create,
